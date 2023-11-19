@@ -5,7 +5,7 @@ package com.gbacoder.boot.thread;
  * @create 2023-11-18
  *
  * before JDK 5.0, there are 2 ways creating Thread
- * note that t can be used for only 1 time
+ * note that t.start() can be used for only 1 time
  *
  * one way
  * 1. create a class extends from Thread, and override run method
