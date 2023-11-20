@@ -1,8 +1,7 @@
 package com.gbacoder.boot.thread.safe;
 
-import javax.swing.plaf.synth.SynthColorChooserUI;
-
 /**
+ * synchronized method
  * @author alanulog
  * @create 2023-11-20
  *

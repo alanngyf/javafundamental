@@ -1,6 +1,8 @@
 package com.gbacoder.boot.thread.safe;
 
 /**
+ * synchronized method
+ *
  * @author alanulog
  * @create 2023-11-20
  *
