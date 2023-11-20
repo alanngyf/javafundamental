@@ -35,7 +35,7 @@ public class ThreadSafeDemoTest {
 
 class TicketVendor implements Runnable {
     int ticket = 100; // Number of tickets
-    Object obj = new Object();
+    // Object obj = new Object();
 
     @Override
     public void run() {
@@ -48,7 +48,8 @@ class TicketVendor implements Runnable {
                 throw new RuntimeException(e);
             }
 
-            synchronized (obj) { // is obj one and only? yes, because all
+            // synchronized (obj) { // is obj one and only? yes
+            synchronized (this) { // is this one and only? yes, only new 1 instance of TicketVendor
                 if (ticket > 0) {
                     try {
                         Thread.sleep(10);
