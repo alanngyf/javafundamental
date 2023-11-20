@@ -20,6 +20,8 @@ package com.gbacoder.boot.thread.notsafe;
  *     // monitor must be the same object for every thread
  * }
  *
+ * # method 2
+ * synchronized method: code that manipulate shared data are all within synchronized method
  *
  */
 public class ThreadSafeIssueDemoTest2 {
