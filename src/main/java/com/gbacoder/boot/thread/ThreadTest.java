@@ -17,6 +17,38 @@ package com.gbacoder.boot.thread;
  * 2. new an instance of (i.e. p) that class
  * 3. new an instance of Thread class (t2) and pass the instance p as parameter
  * 4. call t2.start() method
+ *
+ * Thread common API
+ * # start();
+ * # run();
+ * # currentThread();
+ * # getName();
+ * # setName("_threadName");
+ *
+ * # public static void sleep(long millis);
+ * Thread.sleep(1000); // sleep for 1 second
+ *
+ * # public static void yield();
+ * Thread.yield(); //A hint to the scheduler that the current thread is willing to yield its current use of a processor.
+ *
+ * # public final void join() throws InterruptedException
+ * t1.join(); // Waits for this thread to die.
+ *
+ * # public final boolean isAlive()
+ * // Tests if this thread is alive
+ *
+ * # public final int getPriority()
+ * // return thread's priority, (1-10) MAX_PRIORITY: 10; NORM_PRIORITY: 5; MIN_PRIORITY: 1;
+ *
+ * # public final void setPriority(int newPriority)
+ *
+ *
+ * ### Thread Lifecycle before jdk 1.5
+ * # new
+ * # Runnable
+ * # Running
+ * # Blocked
+ * # Terminated
  */
 public class ThreadTest {
     public static void main(String[] args) {
