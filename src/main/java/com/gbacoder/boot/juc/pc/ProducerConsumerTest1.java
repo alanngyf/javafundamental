@@ -5,6 +5,8 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * Producer and Consumer inter-communication
+ *
  * @author alanulog
  * @create 2023-12-02
  */
