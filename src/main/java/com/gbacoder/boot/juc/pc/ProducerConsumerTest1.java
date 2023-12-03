@@ -5,7 +5,8 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Producer and Consumer inter-communication
+ * communication between Producer and Consumer
+ * Condition can precisely notify and awaken threads.
  *
  * @author alanulog
  * @create 2023-12-02
