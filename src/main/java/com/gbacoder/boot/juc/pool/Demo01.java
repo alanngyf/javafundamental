@@ -32,16 +32,21 @@ import java.util.concurrent.*;
  * 2. new ThreadPoolExecutor.CallerRunsPolicy() //哪来的去那里 下面的例子 回到main thread执行
  * 3. new ThreadPoolExecutor.DiscardPolicy() //隊列滿了有可能丟掉任務 不會拋出異常
  * 4. new ThreadPoolExecutor.DiscardOldestPolicy() //隊列滿了和最早的線程競爭， 也不會拋出異常
+ *
+ * 最大線程該如何定義
+ * 1. CPU 密集型 // 多少核就定為多少，可以保持CPU效率最高
+ * 2. IO  密集型 // 15個大型程序， IO非常佔用資源 判斷你程序中耗用IO線程 設置為2倍
  */
 public class Demo01 {
     public static void main(String[] args) {
 //        ExecutorService threadPool = Executors.newSingleThreadExecutor();
 //        ExecutorService threadPool = Executors.newFixedThreadPool(5);
 //        ExecutorService threadPool = Executors.newCachedThreadPool();
+        System.out.println(Runtime.getRuntime().availableProcessors());
 
         // 自定義線程池
         ThreadPoolExecutor threadPool = new ThreadPoolExecutor(2,
-                5,
+                Runtime.getRuntime().availableProcessors(), // CPU 密集型寫法
                 3,
                 TimeUnit.SECONDS,
                 new LinkedBlockingQueue<>(3),
