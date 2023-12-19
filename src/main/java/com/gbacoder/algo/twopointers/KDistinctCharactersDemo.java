@@ -28,12 +28,15 @@ import java.util.HashMap;
  */
 public class KDistinctCharactersDemo {
     public static void main(String[] args) {
-
+        long num = KDistinctCharacters.kDistinctCharacters("abcabcabcabc", 3);
+        System.out.println(num);
     }
 }
 
 class KDistinctCharacters {
-    public long kDistinctCharacters(String s, int k) {
+    public static long kDistinctCharacters(String s, int k) {
+        if (s == null || s.length() == 0 || k == 0) return 0;
+
         long numOfSubstring = 0L;
         int distinctChars = 0;
         int len = s.length();
