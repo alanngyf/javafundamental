@@ -42,7 +42,7 @@ public class ComparatorTest {
                 if (o1 instanceof Product && o2 instanceof Product) {
                     Product p1 = (Product) o1;
                     Product p2 = (Product) o2;
-                    return -p1.getName().compareTo(p2.getName());
+                    return p1.getName().compareTo(p2.getName());
                 }
 
                 throw new RuntimeException("Type mismatch");
