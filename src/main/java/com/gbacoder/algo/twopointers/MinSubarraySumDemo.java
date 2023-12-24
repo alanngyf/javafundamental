@@ -22,10 +22,12 @@ public class MinSubarraySumDemo {
         int[] arr = new int[] {2,3,1,2,4,3};
         int sum = 7;
         System.out.println(MinimumSizeSubarray.minimumSize(arr, sum));
+        System.out.println(MinimumSizeSubarrayPrefixSum.minimumSize(arr, sum));
 
         int[] arr2 = new int[] {1, 2, 3, 4, 5};
         int sum2 = 100;
         System.out.println(MinimumSizeSubarray.minimumSize(arr2, sum2));
+        System.out.println(MinimumSizeSubarrayPrefixSum.minimumSize(arr2, sum2));
     }
 }
 
@@ -50,5 +52,33 @@ class MinimumSizeSubarray {
             currSumOfSubArray -= nums[i];
         }
         return (minSize == Integer.MAX_VALUE)? -1 : minSize;
+    }
+}
+
+class MinimumSizeSubarrayPrefixSum {
+    public static int minimumSize(int[] nums, int s) {
+        if (nums == null) return -1;
+
+        int len = nums.length;
+        int[] prefixSum = getPrefixSum(nums);
+        int minSize = Integer.MAX_VALUE;
+
+        for (int i = 0; i < len; i++) {
+            for (int j = i; j < len; j++) {
+                if (prefixSum[j + 1] - prefixSum[i] >= s) {
+                    minSize = Math.min(j + 1 - i, minSize);
+                }
+            }
+        }
+        return (minSize == Integer.MAX_VALUE)? -1: minSize;
+    }
+
+    public static int[] getPrefixSum(int[] nums) {
+        int[] prefixSum = new int[nums.length + 1];
+
+        for (int i = 0; i < nums.length; i++) {
+            prefixSum[i + 1] = prefixSum[i] + nums[i];
+        }
+        return prefixSum;
     }
 }
